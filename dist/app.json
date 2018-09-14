@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#fbf7f6",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "果子熟透了",
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "theme": {
+    "theme-color": "#ff6630"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "selectedColor": "#e68664",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconName": "index",
+        "iconPath": "/static/images/icon_index_tab1.png",
+        "selectedIconPath": "/static/images/icon_index_tab2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconName": "user",
+        "iconPath": "/static/images/icon_home_tab1.png",
+        "selectedIconPath": "/static/images/icon_home_tab2.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

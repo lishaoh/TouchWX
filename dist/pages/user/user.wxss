@@ -1,0 +1,187 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+page {
+  background-color: #f5f5f5;
+}
+.home {
+  width: 100%;
+  position: relative;
+}
+.home:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300%;
+  height: 300%;
+  border: 0 #ccc solid;
+  box-sizing: border-box;
+  transform-origin: 0 0;
+  transform: scale(0.33333333);
+  pointer-events: none;
+  z-index: 0;
+  border-top-width: 1px;
+}
+.home .home-list {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px 4rpx 8rpx 0px rgba(211, 211, 211, 0.5);
+  margin-bottom: 40rpx;
+}
+.home .home-list .ui-row {
+  padding: 0 10rpx;
+}
+.home .home-list .ui-col-content {
+  line-height: 100rpx;
+}
+.home .home-list .home-img {
+  width: 70rpx;
+  height: 70rpx;
+  display: inline-block;
+  background: url("http://ipyd.pinyxian.com/wall/home_sprites.png");
+}
+.home .home-list .home-list1 {
+  background-position: -10rpx -10rpx;
+}
+.home .home-list .home-list2 {
+  background-position: -94rpx -10rpx;
+}
+.home .home-list .home-list3 {
+  background-position: -178rpx -10rpx;
+}
+.home .home-list .home-list4 {
+  background-position: -262rpx -10rpx;
+}
+.home .home-data {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  box-shadow: 0px 4rpx 8rpx 0px rgba(211, 211, 211, 0.5);
+  height: 200rpx;
+  border-radius: 20rpx;
+  width: 92%;
+  margin: 0px auto;
+  margin-top: 60rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.home .home-data .data-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  width: 33.3%;
+}
+.home .home-data .data-list text {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.home .home-data .data-befor::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background: #f0f0f0;
+  right: 0;
+  top: 0;
+}
+.home .header {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 60rpx 0px;
+}
+.home .header .header-imgbg {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  height: 330rpx;
+}
+.home .header .header-cont {
+  position: relative;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20rpx;
+  z-index: 1;
+}
+.home .header .header-head {
+  display: flex;
+  width: 78%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.home .header .header-head .header-img {
+  width: 100rpx;
+  height: 100rpx;
+  display: inline-block;
+  border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+.home .header .header-head .header-name {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.home .header .header-head .header-name .signature {
+  font-size: 24rpx;
+  width: 100%;
+  color: #606060;
+  margin-top: 10rpx;
+  box-sizing: content-box;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.home .header .header-setting {
+  display: inline-block;
+  position: relative;
+  padding-right: 20rpx;
+}
+.home .header .header-setting::after {
+  content: "";
+  display: inline-block;
+  height: 12rpx;
+  width: 12rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #c8c8cd;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  right: 0;
+  top: 35%;
+}

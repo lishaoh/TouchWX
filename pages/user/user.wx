@@ -1,0 +1,307 @@
+<template>
+
+  <view class="home">
+    <view class="header">
+      <image class="header-imgbg" src="../../static/images/icon_home_bg.png"/>
+      <view class="header-cont" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+        <view class="header-head">
+          <open-data type="userAvatarUrl" class="header-img"></open-data>
+          <view class="header-name">
+            <open-data type="userNickName"></open-data>
+            <text class="signature">{{signature}}</text>
+          </view>
+        </view>
+        <view class="header-setting" bindtap="toDetails">
+          设置
+        </view>
+      </view>
+      <view wx:else>请升级微信版本</view>
+      <view class="home-data">
+        <view class="data-list data-befor" bindtap="toCollect">
+          <text>999</text>
+          <text>我的收藏</text>
+        </view>
+        <view class="data-list data-befor">
+          <text>999</text>
+          <text>我的下载</text>
+        </view>
+        <view class="data-list">
+          <text>999</text>
+          <text>我的上传</text>
+        </view>
+      </view>
+    </view>
+    <view class="home-list">
+        <ui-row-list>
+          <ui-row height="50" bindtap="toInform">
+              <ui-col width="40" vertical-align="middle" align="center">
+                <view class="home-img home-list1"></view>
+              </ui-col>
+              <ui-col class="text">
+                  我的消息
+              </ui-col>
+              <ui-col width="25" vertical-align="middle">
+                  <ui-icon type="arrow-right"></ui-icon>
+              </ui-col>
+          </ui-row>
+          <ui-row height="50">
+              <ui-col width="40" vertical-align="middle" align="center">
+                <view class="home-img home-list2"></view>
+              </ui-col>
+              <ui-col class="text">
+                  我的赞赏
+              </ui-col>
+              <ui-col width="25" vertical-align="middle">
+                  <ui-icon type="arrow-right"></ui-icon>
+              </ui-col>
+          </ui-row>
+          <ui-row height="50" bindtap="toAaboutUs">
+              <ui-col width="40" vertical-align="middle" align="center">
+                <view class="home-img home-list4"></view>
+              </ui-col>
+              <ui-col class="text">
+                  关于我们
+              </ui-col>
+              <ui-col width="25" vertical-align="middle">
+                  <ui-icon type="arrow-right"></ui-icon>
+              </ui-col>
+          </ui-row>
+          <ui-row height="50" bindtap="toFeedback">
+              <ui-col width="40" vertical-align="middle" align="center">
+                <view class="home-img home-list3"></view>
+              </ui-col>
+              <ui-col class="text">
+                  意见反馈
+              </ui-col>
+              <ui-col width="25" vertical-align="middle">
+                  <ui-icon type="arrow-right"></ui-icon>
+              </ui-col>
+          </ui-row>
+        </ui-row-list>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "我的",
+    disableScroll: false
+  },
+  data: {
+    canIUse: wx.canIUse("button.open-type.getUserInfo"),
+    signature: ""
+  },
+  // 跳转到我的收藏
+  toCollect() {
+    wx.navigateTo({
+      url: "/pages/collect/collect"
+    });
+  },
+  // 跳转到设置
+  toDetails() {
+    wx.navigateTo({
+      url: "/pages/setting/setting"
+    });
+  },
+  // 跳转我的消息
+  toInform() {
+    wx.navigateTo({
+      url: "/pages/inform/inform"
+    });
+  },
+  // 跳转意见反馈
+  toFeedback() {
+    wx.navigateTo({
+      url: "/pages/feedback/feedback"
+    });
+  },
+  // 跳转关于我们
+  toAaboutUs() {
+    wx.navigateTo({
+      url: "/pages/aboutUs/aboutUs"
+    });
+  },
+  // 页面执行后从缓存中获取设置的签名，有接口后可不需要这样操作
+  onShow() {
+    this.setData({
+      signature: wx.getStorageSync("signature") || "用一句话介绍下自己吧"
+    });
+  },
+  onLoad: function() {
+    // 查看是否授权
+    wx.getSetting({
+      success: function(res) {
+        if (res.authSetting["scope.userInfo"]) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function(res) {
+              console.log(res.userInfo);
+            }
+          });
+        }
+      }
+    });
+  },
+  bindGetUserInfo: function(e) {
+    console.log(e.detail.userInfo);
+  }
+};
+</script>
+
+<style lang="less">
+page {
+  background-color: #f5f5f5;
+}
+.home {
+  width: 100%;
+  .mix-1px(1, 0, 0, 0, #ccc);
+  // 列表
+  .home-list {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 4rpx 8rpx 0px rgba(211, 211, 211, 0.5);
+    margin-bottom: 40rpx;
+    .ui-row {
+      padding: 0 10rpx;
+    }
+    .ui-col-content {
+      line-height: 100rpx;
+    }
+    .home-img {
+      width: 70rpx;
+      height: 70rpx;
+      display: inline-block;
+      background: url("http://ipyd.pinyxian.com/wall/home_sprites.png");
+    }
+    .home-list1 {
+      background-position: -10rpx -10rpx;
+    }
+    .home-list2 {
+      background-position: -94rpx -10rpx;
+    }
+    .home-list3 {
+      background-position: -178rpx -10rpx;
+    }
+    .home-list4 {
+      background-position: -262rpx -10rpx;
+    }
+  }
+  // 数据
+  .home-data {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    box-shadow: 0px 4rpx 8rpx 0px rgba(211, 211, 211, 0.5);
+    height: 200rpx;
+    border-radius: 20rpx;
+    width: 92%;
+    margin: 0px auto;
+    margin-top: 60rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .data-list {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      align-items: center;
+      position: relative;
+      width: 33.3%;
+      text {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    .data-befor::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      height: 100%;
+      width: 1px;
+      background: #f0f0f0;
+      right: 0;
+      top: 0;
+    }
+  }
+  // 头
+  .header {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 60rpx 0px;
+    .header-imgbg {
+      position: absolute;
+      top: 0;
+      z-index: 0;
+      height: 330rpx;
+    }
+    .header-cont {
+      position: relative;
+      width: 100%;
+      height: 100rpx;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 20rpx;
+      z-index: 1;
+    }
+    .header-head {
+      display: flex;
+      width: 78%;
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+      .header-img {
+        width: 100rpx;
+        height: 100rpx;
+        display: inline-block;
+        border-radius: 50%;
+        background: #fff;
+        overflow: hidden;
+        margin-right: 20rpx;
+      }
+      .header-name {
+        width: 75%;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        .signature {
+          font-size: 24rpx;
+          width: 100%;
+          color: #606060;
+          margin-top: 10rpx;
+          box-sizing: content-box;
+          text-overflow: -o-ellipsis-lastline;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2; //可以修改为3代表显示3行
+          -webkit-box-orient: vertical;
+        }
+      }
+    }
+    .header-setting {
+      display: inline-block;
+      position: relative;
+      padding-right: 20rpx;
+    }
+    .header-setting::after {
+      content: "";
+      display: inline-block;
+      height: 12rpx;
+      width: 12rpx;
+      border-width: 4rpx 4rpx 0 0;
+      border-color: #c8c8cd;
+      border-style: solid;
+      -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+      transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+      position: absolute;
+      right: 0;
+      top: 35%;
+    }
+  }
+}
+</style>

@@ -1,0 +1,104 @@
+<view class="home">
+  <view class="header">
+    <image class="header-imgbg" src="../../static/images/icon_home_bg.png" />
+    <view class="header-cont" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+      <view class="header-head">
+        <open-data type="userAvatarUrl" class="header-img"></open-data>
+        <view class="header-name">
+          <open-data type="userNickName"></open-data>
+          <text class="signature">{{signature}}</text>
+        </view>
+      </view>
+      <view class="header-setting" bindtap="toDetails">
+        设置
+      </view>
+    </view>
+    <view wx:else="">请升级微信版本</view>
+    <view class="home-data">
+      <view class="data-list data-befor" bindtap="toCollect">
+        <text>999</text>
+        <text>我的收藏</text>
+      </view>
+      <view class="data-list data-befor">
+        <text>999</text>
+        <text>我的下载</text>
+      </view>
+      <view class="data-list">
+        <text>999</text>
+        <text>我的上传</text>
+      </view>
+    </view>
+  </view>
+  <view class="home-list">
+    <view class="ui-row-list" style="">
+      <view bindtap="toInform" class="ui-row" style="height:50px;">
+        <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 40px;">
+          <view class="ui-col-content align-center valign-middle">
+            <view class="home-img home-list1"></view>
+          </view>
+        </view>
+        <view class="text ui-col" style="">
+          <view class="ui-col-content">
+            我的消息
+          </view>
+        </view>
+        <view class="ui-col valign-middle" style="flex:0 0 25px;">
+          <view class="ui-col-content valign-middle">
+            <span type="arrow-right" class="ui-icon icon-arrow-right" style="font-size: 16px;"></span>
+          </view>
+        </view>
+      </view>
+      <view class="ui-row" style="height:50px;">
+        <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 40px;">
+          <view class="ui-col-content align-center valign-middle">
+            <view class="home-img home-list2"></view>
+          </view>
+        </view>
+        <view class="text ui-col" style="">
+          <view class="ui-col-content">
+            我的赞赏
+          </view>
+        </view>
+        <view class="ui-col valign-middle" style="flex:0 0 25px;">
+          <view class="ui-col-content valign-middle">
+            <span type="arrow-right" class="ui-icon icon-arrow-right" style="font-size: 16px;"></span>
+          </view>
+        </view>
+      </view>
+      <view bindtap="toAaboutUs" class="ui-row" style="height:50px;">
+        <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 40px;">
+          <view class="ui-col-content align-center valign-middle">
+            <view class="home-img home-list4"></view>
+          </view>
+        </view>
+        <view class="text ui-col" style="">
+          <view class="ui-col-content">
+            关于我们
+          </view>
+        </view>
+        <view class="ui-col valign-middle" style="flex:0 0 25px;">
+          <view class="ui-col-content valign-middle">
+            <span type="arrow-right" class="ui-icon icon-arrow-right" style="font-size: 16px;"></span>
+          </view>
+        </view>
+      </view>
+      <view bindtap="toFeedback" class="ui-row" style="height:50px;">
+        <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 40px;">
+          <view class="ui-col-content align-center valign-middle">
+            <view class="home-img home-list3"></view>
+          </view>
+        </view>
+        <view class="text ui-col" style="">
+          <view class="ui-col-content">
+            意见反馈
+          </view>
+        </view>
+        <view class="ui-col valign-middle" style="flex:0 0 25px;">
+          <view class="ui-col-content valign-middle">
+            <span type="arrow-right" class="ui-icon icon-arrow-right" style="font-size: 16px;"></span>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
