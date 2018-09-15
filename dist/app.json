@@ -4,11 +4,13 @@
     "pages/user/user"
   ],
   "window": {
+    "navigationStyle": "custom",
     "backgroundTextStyle": "dark",
     "backgroundColor": "#fbf7f6",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "果子熟透了",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationBarBorderColor": "rgba(231, 231, 231, 0.6)"
   },
   "networkTimeout": {
     "request": 10000
@@ -23,14 +25,12 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconName": "index",
         "iconPath": "/static/images/icon_index_tab1.png",
         "selectedIconPath": "/static/images/icon_index_tab2.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/user/user",
-        "iconName": "user",
         "iconPath": "/static/images/icon_home_tab1.png",
         "selectedIconPath": "/static/images/icon_home_tab2.png",
         "text": "我的"

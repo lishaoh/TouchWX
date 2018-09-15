@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "ui-nav-bar": "../../packages/touchui-wx-components/ui-nav-bar/dist/index"
+  },
   "navigationBarTitleText": "我的",
   "disableScroll": false
 }

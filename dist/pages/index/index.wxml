@@ -1,3 +1,29 @@
 <view>
+  <ui-nav-bar slot="nav-bar" class="nav_bar" custom-style="{{ {backgroundColor:'#fff'} }}" _pid="{{_pid}}">
+    <view class="ui-row" style="height:46px;">
+      <view bindtap="navigateBack" class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="arrow-left" size="16" color="#0dc1ae" class="ui-icon icon-arrow-left" style="color: #0dc1ae;font-size: 16px;"></span>
+        </view>
+      </view>
+      <view class="ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <ui-segment bindchange="changTab" item-style="{{itemStyle}}" active-item-style="{{activeItemStyle}}" _pid="{{_pid}}">
+            <ui-segment-item _pid="{{_pid}}">
+              好友去哪
+            </ui-segment-item>
+            <ui-segment-item _pid="{{_pid}}">
+              我的好友
+            </ui-segment-item>
+          </ui-segment>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 80px;">
+        <view class="ui-col-content align-center valign-middle">
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
 
 </view>

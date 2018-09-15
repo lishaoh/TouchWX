@@ -6,7 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Page({
   data: {
     canIUse: wx.canIUse("button.open-type.getUserInfo"),
-    signature: ""
+    signature: "",
+    NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px"
   },
   // 跳转到我的收藏
   toCollect: function toCollect() {

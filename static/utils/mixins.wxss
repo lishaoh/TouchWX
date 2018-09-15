@@ -19,10 +19,3 @@
 /* 水平垂直居中 */
 /* 超出部分出省略号 */
 /* 多行文本超出部分省略号 */
-.nav_bar {
-  background-color: #fff;
-}
-.set {
-  color: #0dc1ae;
-  font-size: 14px;
-}

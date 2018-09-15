@@ -1,5 +1,14 @@
 <template>
-
+<view>
+  <ui-nav-bar slot="nav-bar" class="nav_bar" custom-style="{{ {backgroundColor:'#fff'} }}">
+      <ui-row height="46">
+        <ui-col vertical-align="middle">
+          <view class="text-center">我的</view>
+        </ui-col>
+      </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+</view>
   <view class="home">
     <view class="header">
       <image class="header-imgbg" src="../../static/images/icon_home_bg.png"/>
@@ -90,7 +99,8 @@ export default {
   },
   data: {
     canIUse: wx.canIUse("button.open-type.getUserInfo"),
-    signature: ""
+    signature: "",
+    NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px"
   },
   // 跳转到我的收藏
   toCollect() {
