@@ -1,29 +1,58 @@
 <view>
   <ui-nav-bar slot="nav-bar" class="nav_bar" custom-style="{{ {backgroundColor:'#fff'} }}" _pid="{{_pid}}">
     <view class="ui-row" style="height:46px;">
-      <view bindtap="navigateBack" class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
-        <view class="ui-col-content align-center valign-middle">
-          <span type="arrow-left" size="16" color="#0dc1ae" class="ui-icon icon-arrow-left" style="color: #0dc1ae;font-size: 16px;"></span>
-        </view>
-      </view>
       <view class="ui-col valign-middle" style="">
         <view class="ui-col-content valign-middle">
-          <ui-segment bindchange="changTab" item-style="{{itemStyle}}" active-item-style="{{activeItemStyle}}" _pid="{{_pid}}">
-            <ui-segment-item _pid="{{_pid}}">
-              好友去哪
-            </ui-segment-item>
-            <ui-segment-item _pid="{{_pid}}">
-              我的好友
-            </ui-segment-item>
-          </ui-segment>
-        </view>
-      </view>
-      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 80px;">
-        <view class="ui-col-content align-center valign-middle">
+          <view class="text-center">首页</view>
         </view>
       </view>
     </view>
   </ui-nav-bar>
   <view style="height:{{NAV_HEIGHT}}"></view>
 
+  <view class="swiper-container">
+    <swiper circular autoplay interval="2000" duration="500" bindchange="swiperChange" class="swiper">
+      <block wx:for="{{items}}" wx:key="unique">
+        <swiper-item>
+          <image src="{{item.src}}" class="img" />
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class="dots">
+      <block wx:for="{{items}}" wx:key="unique">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+      </block>
+    </view>
+  </view>
+
+  <view class="roller_content">
+    <view class="ui-row" style="height:30px;">
+      <view class="ui-col ui-col-2 valign-middle" style="flex: 0 0 16.666666666666664%;">
+        <view class="ui-col-content valign-middle">
+          <image src="{{imgSrc}}" style="width:100%;height:11px;" width="100%" mode="aspectFill" />
+        </view>
+      </view>
+      <view class="ui-col ui-col-8.7" style="flex: 0 0 72.5%;padding-left: 10px;padding-right: 10px;">
+        <view class="ui-col-content">
+          <ui-roller autoplay="2000" _pid="{{_pid}}">
+            <ui-roller-item style="width: 100%;" _pid="{{_pid}}">
+              <view class="ui-row" style="">
+                <view class="ui-col ui-col-12" style="flex: 0 0 100%;">
+                  <view class="ui-col-content">
+                    <text block="" class="roller-text">touchui 让企业移动开发降低80%成本</text>
+                  </view>
+                </view>
+              </view>
+            </ui-roller-item>
+          </ui-roller>
+        </view>
+      </view>
+      <view class="ui-col" style="">
+        <view class="ui-col-content">
+          <span>更多</span>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

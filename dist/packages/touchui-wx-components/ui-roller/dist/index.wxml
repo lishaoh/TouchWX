@@ -1,0 +1,3 @@
+<view class="ui-roller" style="height: {{height}}px">
+  <slot></slot>
+</view>

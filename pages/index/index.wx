@@ -1,36 +1,61 @@
 <template>
-  <view>
+<view>
     <ui-nav-bar slot="nav-bar" class="nav_bar" custom-style="{{ {backgroundColor:'#fff'} }}">
-      <ui-row height="46">
-        <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
-          <ui-icon type="arrow-left" size="16" color="#0dc1ae"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle">
-          <ui-segment bindchange="changTab" item-style="{{itemStyle}}" active-item-style="{{activeItemStyle}}">
-            <ui-segment-item>
-              好友去哪
-            </ui-segment-item>
-            <ui-segment-item>
-              我的好友
-            </ui-segment-item>
-          </ui-segment>
-        </ui-col>
-        <ui-col vertical-align="middle" align="center" width="80" >
-        </ui-col>
-      </ui-row>
+        <ui-row height="46">
+            <ui-col vertical-align="middle">
+                <view class="text-center">首页</view>
+            </ui-col>
+        </ui-row>
     </ui-nav-bar>
-        <view style="height:{{NAV_HEIGHT}}"></view>
+    <view style="height:{{NAV_HEIGHT}}"></view>
 
-  </view>
+    <view class="swiper-container">
+        <swiper circular autoplay interval="2000" duration="500" bindchange="swiperChange" class="swiper">
+            <block wx:for="{{items}}" wx:key="unique">
+                <swiper-item>
+                    <image src="{{item.src}}" class="img"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+
+        <view class="dots">
+            <block wx:for="{{items}}" wx:key="unique">
+                <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+            </block>
+        </view>
+    </view>
+
+   <view class="roller_content">
+        <ui-row height="30">
+          <ui-col span="2" vertical-align="middle">
+            <image src="{{imgSrc}}" style="width:100%;height:11px;" width="100%" mode="aspectFill"></image>
+          </ui-col>
+          <ui-col span="8.7" space-left="10"  space-right="10">
+            <ui-roller autoplay="2000">
+              <ui-roller-item style="width: 100%;">
+                <ui-row>
+                  <ui-col span="12">
+                    <text block class="roller-text">touchui 让企业移动开发降低80%成本</text>
+                  </ui-col>
+                </ui-row>
+              </ui-roller-item>
+            </ui-roller>
+          </ui-col>
+          <ui-col>
+            <span>更多</span>
+            </ui-col>
+        </ui-row>
+      </view>
+      </view>
 </template>
+
 <script>
 export default {
   config: {
     navigationBarTitleText: "首页",
     backgroundColor: "#F4F4F4",
     navigationBarTextStyle: "black",
-    navigationBarBorderColor: "rgba(231, 231, 231, 0.6)",
-    navigationStyle: "custom"
+    navigationBarBorderColor: "rgba(231, 231, 231, 0.6)"
   },
   data: {
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px",
@@ -42,7 +67,33 @@ export default {
     activeItemStyle: {
       color: "#fff",
       "background-color": "#0dc1ae"
-    }
+    },
+    swiperCurrent: 0,
+    items: [
+      {
+        src:
+          "http://images.uileader.com/20171110/e5b64484-b5e0-472a-bf52-ac95fb5685d3.jpg",
+        title: "放肆玩乐，轻巧办公"
+      },
+      {
+        src:
+          "http://images.uileader.com/20171110/e33376a8-c599-42e5-87ed-84aec360a61d.jpg",
+        title: "高温保护，一路驰骋"
+      },
+      {
+        src:
+          "http://images.uileader.com/20171110/37cc4a4e-a253-4fcd-a4f6-d9710e8f63e8.jpg",
+        title: "七夕好货，独家礼赠"
+      }
+    ],
+    imgSrc:
+      "http://images.uileader.com/20180413/724c6ad5-b6e0-4971-adeb-f4f502c7243e.png"
+  },
+  swiperChange: function(e) {
+    console.log(e);
+    this.setData({
+      swiperCurrent: e.detail.current
+    });
   }
 };
 </script>
@@ -51,8 +102,50 @@ export default {
 .nav_bar {
   background-color: #fff;
 }
-.set {
-  color: #0dc1ae;
-  font-size: 14px;
+
+// 自定义小圆点
+.swiper-container {
+  position: relative;
+}
+
+.swiper-container .swiper {
+  height: 360rpx;
+}
+
+.swiper-container .swiper .img {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-container .dots {
+  position: absolute;
+  left: 0;
+  right: 30rpx;
+  bottom: 20rpx;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 9;
+}
+
+.swiper-container .dots .dot {
+  margin: 0 8rpx;
+  width: 14rpx;
+  height: 14rpx;
+  background: #fff;
+  border-radius: 8rpx;
+}
+
+.swiper-container .dots .dot.active {
+  width: 24rpx;
+  background: #fff;
+}
+
+.roller_content {
+  padding: 10px 15px;
+  line-height: 30px;
+}
+
+.roller-text {
+  .mix-text-overflow();
 }
 </style>

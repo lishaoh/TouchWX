@@ -942,3 +942,6 @@ button[type="success"][plain] {
 .icon-tread:before {
   content: "\e9bd";
 }
+.text-center {
+  text-align: center;
+}

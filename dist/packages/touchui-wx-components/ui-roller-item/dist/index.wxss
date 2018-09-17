@@ -1,0 +1,10 @@
+ui-roller-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 30px;
+  width: 300px;
+}
+.ui-roller-item {
+  background-color: #fff;
+}
