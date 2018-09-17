@@ -27,7 +27,7 @@ view {
 page {
   background-color: #fff;
   height: 100%;
-  font-size: 14px;
+  font-size: 28rpx;
   line-height: 1.5;
 }
 image {
@@ -39,10 +39,10 @@ image {
   background-color: #eee !important;
 }
 button {
-  font-size: 14px;
+  font-size: 28rpx;
   overflow: inherit;
   color: #1f2d3d;
-  margin: 6px 0;
+  margin: 12rpx 0;
 }
 button[type="primary"] {
   background-color: #ff6630;
@@ -128,11 +128,11 @@ button[type="success"][plain] {
   transform: scaleY(0.5);
 }
 .ui-row-list.ui-row-list-border-left-indent {
-  padding-left: 15px;
+  padding-left: 30rpx;
 }
 .ui-row-list.ui-row-list-border-indent {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
 }
 .ui-row {
   position: relative;

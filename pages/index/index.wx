@@ -42,7 +42,7 @@
             </ui-roller>
           </ui-col>
           <ui-col>
-            <span>更多</span>
+            <view style="margin-top: -2px">更多</view>
             </ui-col>
         </ui-row>
       </view>

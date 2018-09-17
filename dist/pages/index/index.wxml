@@ -50,7 +50,7 @@
       </view>
       <view class="ui-col" style="">
         <view class="ui-col-content">
-          <span>更多</span>
+          <view style="margin-top: -2px">更多</view>
         </view>
       </view>
     </view>
